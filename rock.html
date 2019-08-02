@@ -1,18 +1,24 @@
 <html>
   <head>
-    <charset = utf-8></charset>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RockPaperScissors Game</title>
   </head>
   <script>
-  function game() {
-      for ( var i = 0; i < 5; i++ ) {
-        var playerSelection = window.prompt( "ROCK PAPER SCISSORS??", "your choice" );
+    function game() {
+      for (var i = 0; i < 5; i++) {
+        var playerSelection = window.prompt(
+          "ROCK PAPER SCISSORS??",
+          "your choice"
+        );
         var computerSelection = Play();
         function Play() {
           var min = 1;
           var max = 4;
 
-          var ran = Math.floor( Math.random() * ( +max - +min ) + +min );
-          switch ( ran ) {
+          var ran = Math.floor(Math.random() * (+max - +min) + +min);
+          switch (ran) {
             case 1:
               return "Rock";
             case 2:
@@ -22,36 +28,37 @@
           }
         }
 
-        function playRound( playerSelection, computerSelection ) {
+        function playRound(playerSelection, computerSelection) {
           var pl = playerSelection.toLowerCase();
           var co = computerSelection.toLowerCase();
 
           var stc = "You lose! " + co + " beats " + pl;
-          var stp = "You win! " + playerSelection + " beats " + computerSelection;
-          if ( pl == co ) {
+          var stp =
+            "You win! " + playerSelection + " beats " + computerSelection;
+          if (pl == co) {
             return "We have a tie!";
           }
-          switch ( co ) {
+          switch (co) {
             case "rock": {
-              if ( pl == "paper" ) {
+              if (pl == "paper") {
                 return stp;
               } else return stc;
             }
             case "paper": {
-              if ( pl == "scissors" ) {
+              if (pl == "scissors") {
                 return stp;
               } else return stc;
             }
             case "scissors": {
-              if ( pl == "rock" ) {
+              if (pl == "rock") {
                 return stp;
               } else return stc;
             }
           }
         }
-        console.log( playRound( playerSelection, computerSelection ) + "\n" );
+        console.log(playRound(playerSelection, computerSelection) + "\n");
       }
     }
     game();
-</script>
+  </script>
 </html>
